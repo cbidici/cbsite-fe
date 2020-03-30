@@ -1,5 +1,6 @@
 import React from 'react';
 import {Layout} from 'antd';
+import Blog from '../blog/Blog'
 const {Header, Content, Footer, Sider} = Layout
 
 class Main extends React.Component {
@@ -7,7 +8,9 @@ class Main extends React.Component {
         return(
             <Layout>
                 <Header>Header</Header>
-                <Content>Content</Content>
+                <Content>
+                    <Blog/>
+                </Content>
                 <Footer>Footer</Footer>
             </Layout>
         );
