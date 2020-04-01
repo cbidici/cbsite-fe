@@ -1,15 +1,24 @@
 import React from 'react'
+import PostCard from './PostCard'
 
 class PostList extends React.Component {
     render() {
         return(
             <div>
-                List of posts
-                <ul>
-                    <li>Post 1</li>
-                    <li>Post 2</li>
-                    <li>Post 3</li>
-                </ul>
+                <PostCard/>
+                <br/>
+                <PostCard/>
+                <br/>
+                <PostCard/>
+                <br/>
+                <PostCard/>
+                <br/>
+                <PostCard/>
+                <br/>
+                <PostCard/>
+                <br/>
+                <PostCard/>
+                <br/>
             </div>
         );
     }

@@ -1,18 +1,21 @@
-import React from 'react';
-import {Layout} from 'antd';
+import React from 'react'
+import {Layout} from 'antd'
+import TopMenu from './TopMenu'
 import Blog from '../blog/Blog'
-import { Link, Route } from 'react-router-dom'
+import {Route} from 'react-router-dom'
+
+import './main.css'
+
 const {Header, Content, Footer, Sider} = Layout
 
 class Main extends React.Component {
     render() {
         return(
             <Layout>
-                <Header>
-                    <Link to={'/'}>Home</Link>
-                    <Link to={'/blog/'}>Blog</Link>
+                <Header style={{padding:'0', position:'fixed', zIndex:1, width:'100%'}}>
+                    <TopMenu/>
                 </Header>
-                <Content>
+                <Content style={{marginTop:64, padding:50}}>
                     <Route exact={true} path='/' render={()=>(<div>Home</div>)} />
                     <Route path='/blog/' component={Blog} />
                 </Content>
