@@ -1,35 +1,24 @@
 import React from 'react'
-import {Menu}  from 'antd'
 import {Link} from 'react-router-dom'
+import {Navbar, Nav} from 'react-bootstrap'
+
 
 class TopMenu extends React.Component {
-  state = {
-    current: '1',
-  };
-
-  handleClick = e => {
-    this.setState({
-      current: e.key,
-    });
-  };
-
   render() {
     return (
-      <div>
-        <Menu
-          onClick={this.handleClick}
-          defaultOpenKeys={['sub1']}
-          selectedKeys={[this.state.current]}
-          mode="horizontal"
-        >
-            <Menu.Item key="1">
-                <Link to={'/'}>Home</Link>
-            </Menu.Item>
-            <Menu.Item key="2">
-                <Link to={'/blog/'}>Blog</Link>
-            </Menu.Item>
-        </Menu>
-      </div>
+      <Navbar fixed="top" bg="light" expand="lg">
+        <Navbar.Brand><Link to={'/'}>CB SITE</Link></Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Link className='nav-link' to={'/'}>Home</Link>
+            <Link className='nav-link' to={'/blog/'}>Blog</Link>
+          </Nav>
+          <Nav className="mr-auto">
+            <Link className='nav-link' to={'/login/'}>Login</Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
     );
   }
 }
