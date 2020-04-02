@@ -6,7 +6,7 @@ import {Route} from 'react-router-dom'
 
 import './main.css'
 
-const {Header, Content, Footer, Sider} = Layout
+const {Header, Content, Footer} = Layout
 
 class Main extends React.Component {
     render() {

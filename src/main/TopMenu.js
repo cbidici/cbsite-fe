@@ -1,6 +1,5 @@
 import React from 'react'
 import {Menu}  from 'antd'
-import 'antd/dist/antd.css';
 import {Link} from 'react-router-dom'
 
 class TopMenu extends React.Component {
@@ -9,7 +8,6 @@ class TopMenu extends React.Component {
   };
 
   handleClick = e => {
-    console.log('click ', e);
     this.setState({
       current: e.key,
     });
