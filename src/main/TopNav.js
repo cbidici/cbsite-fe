@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import {Navbar, Nav} from 'react-bootstrap'
 
 
-class TopMenu extends React.Component {
+class TopNav extends React.Component {
   render() {
     return (
       <Navbar fixed="top" bg="light" expand="lg">
@@ -14,7 +14,7 @@ class TopMenu extends React.Component {
             <Link className='nav-link' to={'/'}>Home</Link>
             <Link className='nav-link' to={'/blog/'}>Blog</Link>
           </Nav>
-          <Nav className="mr-auto">
+          <Nav className="justify-content-end">
             <Link className='nav-link' to={'/login/'}>Login</Link>
           </Nav>
         </Navbar.Collapse>
@@ -23,4 +23,4 @@ class TopMenu extends React.Component {
   }
 }
 
-export default TopMenu;
+export default TopNav;
