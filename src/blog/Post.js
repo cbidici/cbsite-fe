@@ -1,6 +1,12 @@
 import React from 'react'
 
 class Post extends React.Component {
+
+    componentDidMount() {
+        console.log(this.props.id)
+        console.log(this.props.match)
+    }
+
     render() {
         return (
             <div>
