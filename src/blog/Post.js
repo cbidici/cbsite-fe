@@ -2,24 +2,33 @@ import React from 'react'
 
 class Post extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            post : {}
+        };
+    }
+
     componentDidMount() {
-        console.log(this.props.id)
-        console.log(this.props.match)
+        fetch('http://127.0.0.1:8000/api/blog/posts/'+this.props.match.params['id']+"/")
+        .then(res=> res.json())
+        .then((data)=>{
+            this.setState({
+                post:data
+            });
+        }).catch((e) => {console.log(e)})
     }
 
     render() {
         return (
             <div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in felis placerat, tempus nunc blandit, laoreet libero. Nunc eget consequat turpis. Ut augue enim, faucibus vitae metus ac, pretium luctus dui. In mollis accumsan dui, sed tristique ex. Nunc vehicula, sapien quis porttitor porttitor, tellus lorem convallis est, eu condimentum purus sem a lacus. Vestibulum metus tellus, sagittis id varius pellentesque, efficitur vitae nibh. Sed blandit fermentum nulla eu pellentesque. Suspendisse tristique venenatis ipsum, sed aliquam justo mattis in. Vestibulum venenatis lorem turpis, quis vehicula lectus porttitor a. In porta dictum varius. Fusce justo turpis, tempor sit amet mauris facilisis, fermentum convallis mauris.
-                <br/><br/>Nulla id tellus et mauris ullamcorper bibendum. Vivamus eget est eleifend magna feugiat vestibulum. Praesent malesuada odio eget nunc scelerisque, a dapibus nisi vehicula. Suspendisse ut arcu nulla. Nam malesuada ultricies neque. Donec lobortis mi ultricies, gravida diam in, imperdiet nulla. Praesent laoreet tempus nulla ut pulvinar. Suspendisse potenti. Mauris lacinia a tellus vel dapibus. Phasellus facilisis sem eget turpis sagittis, id convallis felis hendrerit. Integer accumsan tempor ligula non porttitor. Sed et scelerisque leo. Morbi blandit, ex et vestibulum sollicitudin, nisl nunc sagittis lorem, nec dignissim massa est nec nisi. Suspendisse elit ipsum, volutpat vel eros eget, tempus luctus elit. Curabitur egestas sollicitudin gravida.
-                <br/><br/>In ut orci elementum, sagittis lectus ac, convallis felis. Fusce ornare condimentum molestie. Curabitur vel pellentesque lacus. Nunc tincidunt ante vitae fringilla placerat. In laoreet efficitur mi a consequat. Donec ac urna posuere, fringilla lectus a, auctor augue. Ut hendrerit facilisis dignissim. Praesent ultrices ac lorem non dapibus. Nulla non elementum felis. Maecenas non justo quis ipsum dictum pharetra non at sem. Mauris sollicitudin efficitur mi at bibendum.
-                <br/><br/>Nunc libero sem, sagittis at lorem a, pellentesque placerat ipsum. Curabitur mattis orci quis elementum elementum. Aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin ligula suscipit nisl vulputate, at finibus urna laoreet. Ut in sagittis tellus. Ut vulputate metus lorem, non consequat mi consectetur id. Maecenas vel ipsum enim. Duis pretium et purus vitae viverra. Phasellus bibendum efficitur elit, quis tempor ligula commodo ut. Curabitur id faucibus urna. Aliquam ut est leo. Suspendisse ut condimentum libero, id aliquam enim. Aliquam sem ligula, semper sit amet ex in, interdum ullamcorper urna. Etiam cursus, elit vitae mollis accumsan, tortor nulla sagittis elit, quis condimentum ipsum velit sodales nisi. Sed sagittis rhoncus diam, quis finibus urna pellentesque vel.
-                <br/><br/>Quisque porta nibh id porttitor maximus. In hac habitasse platea dictumst. Fusce mattis arcu maximus, ornare lectus in, tempor nisl. Phasellus sodales orci eu magna tempor semper. Suspendisse accumsan lorem elit, id euismod tellus suscipit sed. Mauris sodales eros at velit aliquet, venenatis maximus felis mattis. Vestibulum elit erat, dignissim gravida tortor ut, suscipit mattis magna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In scelerisque risus sed tempus molestie. Donec mattis mi vitae lacus vestibulum sollicitudin. Nulla dignissim condimentum tortor, sed egestas ex auctor non. Nam dignissim quam in pellentesque tincidunt. Sed maximus in massa mattis aliquam. Curabitur cursus maximus dui, at luctus eros gravida quis.
-                <br/><br/>Nullam ante augue, sagittis a urna ac, ultricies porttitor magna. Nunc finibus iaculis erat, eget rhoncus tortor. Fusce lectus nisi, sodales sit amet ante sit amet, rutrum facilisis sapien. Vivamus vel massa et eros interdum ullamcorper vel eu nunc. Aliquam tincidunt mauris vel dui semper malesuada. Fusce iaculis lorem eu velit posuere vulputate. Nullam sollicitudin porta ornare. In placerat, nisl a suscipit pulvinar, metus ligula auctor quam, sed dapibus leo magna sed arcu. Aenean tempor dictum orci at consectetur. Donec pharetra facilisis tortor non dictum. Sed condimentum augue in elit ultricies ultrices. Sed posuere maximus sagittis. Quisque ornare diam in nisl elementum, eget consequat felis tincidunt. Aenean commodo dignissim felis, ac tincidunt neque fringilla eget. Aenean vitae ante tortor. Phasellus volutpat venenatis nibh, sed pharetra nunc imperdiet id.
-                <br/><br/>Nullam vitae ex pharetra, congue leo at, malesuada mauris. Integer a tortor mattis, congue neque in, cursus odio. Vivamus ac purus magna. Curabitur odio ex, hendrerit at erat a, ultrices tincidunt diam. Nam convallis vel ligula eget consectetur. Sed fermentum purus vel enim commodo, nec maximus magna suscipit. Maecenas a turpis nec velit pellentesque mattis. Vivamus fermentum auctor massa, luctus tincidunt felis ullamcorper rutrum. Suspendisse tortor nulla, blandit non condimentum id, imperdiet ac tortor.
-                <br/><br/>Donec lobortis sapien at velit gravida bibendum. Fusce a justo sed tortor varius ornare vel vel sem. Cras gravida, odio in rhoncus placerat, justo sapien tristique lectus, vitae porta lorem enim eu justo. Vestibulum venenatis massa in purus rutrum vulputate. Donec faucibus iaculis faucibus. Quisque cursus orci quis nibh vehicula feugiat. Nullam ante mauris, venenatis a posuere eget, tincidunt quis ipsum.
-                <br/><br/>Quisque ullamcorper pretium mauris sed pretium. Vestibulum dapibus, justo a pellentesque tristique, elit tellus venenatis mauris, dignissim lacinia risus erat vitae arcu. Maecenas maximus tempor ligula, a ultrices justo sagittis et. Aliquam in sodales mauris. Suspendisse potenti. Praesent eu velit augue. Pellentesque imperdiet condimentum ex, sit amet condimentum ipsum blandit in. Quisque sit amet quam laoreet, fermentum arcu finibus, bibendum lectus. Curabitur vel ultricies justo. Duis congue arcu sed ligula tincidunt, at porta nisl congue. Mauris quis odio aliquet, aliquet arcu ut, tempus erat.
-                <br/><br/>Cras mi metus, blandit non orci sit amet, malesuada condimentum nisl. Vestibulum egestas rhoncus enim nec molestie. Etiam orci purus, malesuada non est a, fringilla iaculis lectus. Fusce in sapien consectetur, euismod nisl id, pulvinar velit. Proin auctor, justo ac convallis ornare, velit augue congue neque, ornare lobortis arcu diam a tellus. Fusce augue eros, laoreet nec augue ac, mollis consequat nisi. In sollicitudin aliquam aliquam. Nam egestas lobortis sem, vitae dapibus erat pretium et. Suspendisse convallis tortor in leo posuere imperdiet. Aliquam nec dolor at ligula facilisis malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse eget congue ligula. Donec vehicula dignissim ex, in dapibus neque eleifend ac. Pellentesque non blandit massa. Vestibulum sed leo neque.
+                <h3>{this.state.post.title}</h3>
+                <h6><small className="text-muted">Published at {this.state.post.created}</small></h6>
+                <div className="dropdown-divider"></div>
+                {this.state.post.text}
+                <br/>
+                <br/>
+                <p className="float-right">{this.state.post.owner}</p>
             </div>
         );
     }

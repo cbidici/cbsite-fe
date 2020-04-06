@@ -16,10 +16,12 @@ class TopNav extends React.Component {
               <Link to={"/"} className="nav-link">Home</Link>
             </li>
             <li className="nav-item">
-              <Link to={'/blog/'} className="nav-link">Blog</Link>
+              <Link to={'/blog'} className="nav-link">Blog</Link>
             </li>
+          </ul>
+          <ul className="navbar-nav">
             <li className="nav-item">
-              <Link to={'/login/'} className="nav-link">Login</Link>
+              <Link to={'/login'} className="nav-link">Login</Link>
             </li>
           </ul>
         </div>

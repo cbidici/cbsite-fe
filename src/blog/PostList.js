@@ -1,5 +1,5 @@
 import React from 'react'
-import PostCard from './PostCard'
+import {Link} from 'react-router-dom'
 
 class PostList extends React.Component {
 
@@ -21,11 +21,16 @@ class PostList extends React.Component {
     }
 
     render() {
-        console.log(this.state)
         return(
             <div>
                 {this.state.posts.map((post)=>(
-                    <PostCard key={post.id} post={post}/>
+                    <div key={post.id} className="card" style={{"border":0}}>
+                        <div className="card-body">
+                            <h5 className="card-title">{post.title}</h5>
+                            <p className="card-text">{post.text}</p>
+                            <Link to={"/blog/"+post.id} className="card-link float-right">Read</Link>
+                        </div>
+                    </div>
                 ))}
             </div>
         );
