@@ -10,7 +10,7 @@ class Post extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://127.0.0.1:8000/api/blog/posts/'+this.props.match.params['id']+"/")
+        fetch(process.env.REACT_APP_API_BASE_URL+'blog/posts/'+this.props.match.params['id']+"/")
         .then(res=> res.json())
         .then((data)=>{
             this.setState({

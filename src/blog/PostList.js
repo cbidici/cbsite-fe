@@ -11,7 +11,7 @@ class PostList extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://127.0.0.1:8000/api/blog/posts/')
+        fetch(process.env.REACT_APP_API_BASE_URL+'blog/posts/')
         .then(res=> res.json())
         .then((data)=>{
             this.setState({
