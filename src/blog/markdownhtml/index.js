@@ -2,7 +2,7 @@ import React from 'react';
 import DOMPurify from 'dompurify';
 import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
-import htmlbars from 'highlight.js/lib/languages/htmlbars';
+import handlebars from 'highlight.js/lib/languages/handlebars';
 import css from 'highlight.js/lib/languages/css';
 import java from 'highlight.js/lib/languages/java';
 import python from 'highlight.js/lib/languages/python';
@@ -11,6 +11,7 @@ import diff from 'highlight.js/lib/languages/diff';
 import sql from 'highlight.js/lib/languages/sql';
 import xml from 'highlight.js/lib/languages/xml';
 import 'highlight.js/styles/github.css';
+import './markdownhtml.css'
 const marked = require('marked');
 
 
@@ -23,7 +24,7 @@ class MarkdownHtml extends React.Component {
         }
 
         hljs.registerLanguage('javascript', javascript);
-        hljs.registerLanguage('htmlbars', htmlbars);
+        hljs.registerLanguage('handlebars', handlebars);
         hljs.registerLanguage('css', css);
         hljs.registerLanguage('java', java);
         hljs.registerLanguage('python', python);
@@ -65,7 +66,7 @@ class MarkdownHtml extends React.Component {
 
     render() {
         return (
-            <div dangerouslySetInnerHTML={{__html: this.state.preview}}></div>
+            <div className="markdownhtml" dangerouslySetInnerHTML={{__html: this.state.preview}}></div>
         );
 
     }

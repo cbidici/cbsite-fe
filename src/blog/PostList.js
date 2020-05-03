@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import MarkdownHtml from './markdownhtml'
 
 class PostList extends React.Component {
 
@@ -27,7 +28,7 @@ class PostList extends React.Component {
                     <div key={post.id} className="card" style={{"border":0}}>
                         <div className="card-body">
                             <h5 className="card-title">{post.title}</h5>
-                            <p className="card-text">{post.text}</p>
+                            <MarkdownHtml text={post.summary} />
                             <Link to={"/blog/"+post.id} className="card-link float-right">Read</Link>
                         </div>
                     </div>

@@ -1,0 +1,10 @@
+.markdownhtml pre {
+    font-family: monospace, "Bitstream Vera Sans Mono",Courier, "Courier New";
+    border-radius: 4px;
+    padding: 1em;
+    background-color: #f3f3f3;
+    margin: 5px;
+}
+.markdownhtml code {
+    font-family: monospace, "Bitstream Vera Sans Mono",Courier, "Courier New";
+}
