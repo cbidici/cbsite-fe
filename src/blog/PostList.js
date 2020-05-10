@@ -12,7 +12,7 @@ class PostList extends React.Component {
     }
 
     componentDidMount() {
-        fetch(process.env.REACT_APP_API_BASE_URL+'blog/posts/')
+        fetch(process.env.REACT_APP_API_BASE_URL+'blog/posts/?ordering=-created')
         .then(res=> res.json())
         .then((data)=>{
             this.setState({
