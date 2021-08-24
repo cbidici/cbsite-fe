@@ -24,10 +24,8 @@ class Post extends React.Component {
     render() {
         return (
             <div>
-                <h3>{this.state.post.title}</h3>
+                <h2>{this.state.post.title}</h2>
                 <h6><small className="text-muted">Published at {this.state.post.created}</small></h6>
-                <div className="dropdown-divider"></div>
-                <MarkdownHtml text={this.state.post.summary} />
                 <MarkdownHtml text={this.state.post.text} />
                 <br/>
                 <br/>
