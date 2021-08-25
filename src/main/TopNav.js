@@ -16,7 +16,7 @@ class TopNav extends React.Component {
               <Link to={"/"} className="nav-link">Home</Link>
             </li>
             <li className="nav-item">
-              <Link to={'/blog'} className="nav-link">Blog</Link>
+              <Link to={'/blog/posts'} className="nav-link">Blog Posts</Link>
             </li>
           </ul>
           <ul className="navbar-nav">

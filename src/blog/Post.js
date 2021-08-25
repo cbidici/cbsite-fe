@@ -1,6 +1,7 @@
 import React from 'react'
 import MarkdownHtml from './markdownhtml'
 import {Helmet} from "react-helmet";
+import {Link} from "react-router-dom";
 
 
 class Post extends React.Component {
@@ -34,10 +35,21 @@ class Post extends React.Component {
                 </Helmet>
                 <h2>{this.state.post.title}</h2>
                 <h6><small className="text-muted">Published at {this.state.post.created}</small></h6>
-                <MarkdownHtml text={this.state.post.text} />
-                <br/>
-                <br/>
-                <p className="float-right">{this.state.post.owner}</p>
+                <div className="dropdown-divider"></div>
+                <div className="row">
+                    <div className="col-10">
+                        <MarkdownHtml text={this.state.post.text} />
+                        <br/>
+                        <Link to={"/blog/posts/?owner="+this.state.post.owner} className="card-link float-right">{this.state.post.owner}</Link>
+                    </div>
+                    <div className="col-2">
+                        <div>
+                            {this.state.post.tags.map((tag)=>(
+                                <Link key={tag.slug} to={"/blog/posts/?tag="+tag.slug} className="tag badge badge-secondary">{tag.tag}</Link>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
