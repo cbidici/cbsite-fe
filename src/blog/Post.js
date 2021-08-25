@@ -1,5 +1,6 @@
 import React from 'react'
 import MarkdownHtml from './markdownhtml'
+import {Helmet} from "react-helmet";
 
 
 class Post extends React.Component {
@@ -7,7 +8,9 @@ class Post extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            post : {}
+            post : {
+                tags: []
+            }
         };
     }
 
@@ -24,6 +27,11 @@ class Post extends React.Component {
     render() {
         return (
             <div>
+                <Helmet>
+                    <title>{'Coşkun Bıdıcı - ' + this.state.post.title}</title>
+                    <meta name="description" content={this.state.post.title} />
+                    <meta name="keywords" content={this.state.post.tags.map(tag => tag.tag)} />
+                </Helmet>
                 <h2>{this.state.post.title}</h2>
                 <h6><small className="text-muted">Published at {this.state.post.created}</small></h6>
                 <MarkdownHtml text={this.state.post.text} />

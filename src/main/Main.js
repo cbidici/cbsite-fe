@@ -4,12 +4,17 @@ import Blog from '../blog/Blog'
 import {Switch, Route} from 'react-router-dom'
 import Footer from './Footer'
 import './main.css'
+import {Helmet} from "react-helmet";
 
 
 class Main extends React.Component {
     render() {
         return(
             <div>
+                <Helmet>
+                    <title>Coşkun Bıdıcı</title>
+                    <meta name="description" content="Just a website" />
+                </Helmet>
                 <TopNav/>
                 <div className="container" style={{marginTop:60}}>
                     <Switch>
