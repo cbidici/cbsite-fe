@@ -16,7 +16,7 @@ class Blog extends React.Component {
                 <div className="row">
                     <div className="col">
                         <Switch>
-                            <Route path={this.props.match.path+'/:id'} component={Post} />
+                            <Route path={this.props.match.path+'/:slug'} component={Post} />
                             <Route path={this.props.match.path} component={PostList} />
                         </Switch>
                     </div>

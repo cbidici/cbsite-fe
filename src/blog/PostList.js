@@ -29,7 +29,7 @@ class PostList extends React.Component {
                         <div className="card-body">
                             <h5 className="card-title">{post.title}</h5>
                             <MarkdownHtml text={post.summary} />
-                            <Link to={"/blog/"+post.id} className="card-link float-right">Read</Link>
+                            <Link to={"/blog/"+post.slug} className="card-link float-right">Read</Link>
                         </div>
                     </div>
                 ))}

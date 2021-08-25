@@ -15,7 +15,7 @@ class Post extends React.Component {
     }
 
     componentDidMount() {
-        fetch(process.env.REACT_APP_API_BASE_URL+'blog/posts/'+this.props.match.params['id']+"/")
+        fetch(process.env.REACT_APP_API_BASE_URL+'blog/posts/'+this.props.match.params['slug']+"/")
         .then(res=> res.json())
         .then((data)=>{
             this.setState({
