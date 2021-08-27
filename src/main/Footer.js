@@ -8,7 +8,7 @@ class Footer extends React.Component {
         return(
             <div className="container" style={{marginBottom:150}}>
                 <div className="dropdown-divider"></div>
-                <div className="float-left">End of just a site</div>
+                <div className="float-left"></div>
                 <div className="float-right">
                     <div className="social_links">
                         <a href={linkedin_url} target="_blank" rel="noopener noreferrer">

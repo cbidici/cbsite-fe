@@ -12,20 +12,35 @@ class PostList extends React.Component {
         }
     }
 
-    componentDidMount() {
-        let queryParams = queryString.parse(this.props.location.search)
+    fetchPosts(queryParams) {
         queryParams.ordering = '-created'
-        console.log(queryParams)
 
         fetch(process.env.REACT_APP_API_BASE_URL+'blog/posts/?' +
             Object.keys(queryParams).map(k => k + '=' + queryParams[k]).join('&')
         )
-        .then(res=> res.json())
-        .then((data)=>{
-            this.setState({
-                posts:data
-            });
-        }).catch((e) => {console.log(e)})
+            .then(res=> res.json())
+            .then((data)=>{
+                this.setState({
+                    posts:data
+                });
+            }).catch((e) => {console.log(e)})
+    }
+
+    isQueryParametersChanged(prevProps) {
+        return prevProps !== undefined && prevProps.location.search !== this.props.location.search
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.isQueryParametersChanged(prevProps)) {
+            let queryParams = queryString.parse(this.props.location.search)
+            this.fetchPosts(queryParams)
+        }
+    }
+
+
+    componentDidMount() {
+        let queryParams = queryString.parse(this.props.location.search)
+        this.fetchPosts(queryParams)
     }
 
     render() {
