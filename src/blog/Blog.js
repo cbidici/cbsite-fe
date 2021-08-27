@@ -13,8 +13,7 @@ class Blog extends React.Component {
                     <title>Coşkun Bıdıcı - Blog</title>
                     <meta name="description" content="Just a blog" />
                 </Helmet>
-                <br/>
-                <div className="row">
+                <div className="row pt-md-4 pb-md-4">
                     <div className="col">
                         <Switch>
                             <Route path={this.props.match.path+'/posts/:slug'} component={Post} />

@@ -49,8 +49,6 @@ class Post extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <br/>
-                    <Link to={"/blog/posts/?owner="+this.state.post.owner} className="card-link float-right">{this.state.post.owner}</Link>
                 </div>
             </div>
         );
