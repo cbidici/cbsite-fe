@@ -1,7 +1,7 @@
 import React from 'react'
 import MarkdownHtml from './markdownhtml'
+import TagList from "../shared/TagList";
 import {Helmet} from "react-helmet";
-import {Link} from "react-router-dom";
 
 
 class Post extends React.Component {
@@ -42,11 +42,7 @@ class Post extends React.Component {
                             <MarkdownHtml text={this.state.post.text} />
                         </div>
                         <div className="col-sm col-md-2">
-                            <div>
-                                {this.state.post.tags.map((tag)=>(
-                                    <Link key={tag.slug} to={"/blog/posts/?tag="+tag.slug} className="tag badge badge-secondary">{tag.tag}</Link>
-                                ))}
-                            </div>
+                            <TagList tags={this.state.post.tags}></TagList>
                         </div>
                     </div>
                 </div>

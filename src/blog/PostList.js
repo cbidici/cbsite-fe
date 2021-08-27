@@ -2,13 +2,15 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import MarkdownHtml from './markdownhtml'
 import queryString from 'query-string'
+import TagList from "../shared/TagList";
 
 class PostList extends React.Component {
 
     constructor(props) {
         super(props);
         this.state= {
-            posts:[]
+            posts:[],
+            tags:[]
         }
     }
 
@@ -22,6 +24,16 @@ class PostList extends React.Component {
             .then((data)=>{
                 this.setState({
                     posts:data
+                });
+            }).catch((e) => {console.log(e)})
+    }
+
+    fetchTags() {
+        fetch(process.env.REACT_APP_API_BASE_URL+'tags/')
+            .then(res=> res.json())
+            .then((data)=>{
+                this.setState({
+                    tags:data
                 });
             }).catch((e) => {console.log(e)})
     }
@@ -41,11 +53,13 @@ class PostList extends React.Component {
     componentDidMount() {
         let queryParams = queryString.parse(this.props.location.search)
         this.fetchPosts(queryParams)
+        this.fetchTags()
     }
 
     render() {
         return(
-            <div>
+            <div className="row">
+                <div className="col-sm col-md-10">
                 {this.state.posts.map((post)=>(
                     <div key={post.id} className="card" style={{"border":0}}>
                         <div className="card-body">
@@ -54,6 +68,10 @@ class PostList extends React.Component {
                         </div>
                     </div>
                 ))}
+                </div>
+                <div className="col-sm col-md-2">
+                    <TagList tags={this.state.tags}></TagList>
+                </div>
             </div>
         );
     }
